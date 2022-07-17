@@ -1,0 +1,61 @@
+
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = crlf
+insert_final_newline = true
+
+# Set default charset
+[*]
+charset = utf-8
+
+# 2 space indentation for javascript
+[*.{js,ts,jsx,vue,json,html}]
+indent_style = space
+indent_size = 2
+
+# 4 space indentation for php and html
+[*.{php,blade.php,css,scss,less}]
+indent_style = space
+indent_size = 4
+
+# Whitespace is removed from the end of lines
+[*]
+trim_trailing_whitespace = true
+
+# Preferred quoting style for string literals
+[*]
+quote_type = double
+
+# The left part of the curly bracket should not be on the next line
+[*]
+curly_bracket_next_line = false
+
+# Spaces should be present around arithmetic and boolean operators
+[*]
+spaces_around_operators = true
+
+# How spaces should be around brackets and parentheses
+[*]
+spaces_around_brackets = both
+
+# Denotes the style for using curly braces in code blocks
+[*]
+indent_brace_style = K&R
+
+# The number of imports required before multiple imports are automatically collapsed to a wildcard
+[*]
+wildcard_import_limit = 3
+
+# Continuation indent size.
+# Useful to distinguish code blocks versus continuation lines
+[*]
+continuation_indent_size = 1
+
+# Forces hard line wrapping after the amount of characters specified
+max_line_length = 140
+
