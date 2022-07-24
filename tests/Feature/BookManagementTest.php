@@ -7,14 +7,14 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class BookReservationTest extends TestCase
+class BookManagementTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
     public function a_book_can_be_added_to_the_library()
     {
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
 
         $response = $this->post("api/books", [
             "title" => "Cook book title",
@@ -54,7 +54,7 @@ class BookReservationTest extends TestCase
     /** @test */
     public function a_book_can_be_updated()
     {
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
 
         $this->post("api/books", [
             "title" => "Cook book title",
@@ -70,5 +70,23 @@ class BookReservationTest extends TestCase
 
         $this->assertEquals("New title", Book::first()->title);
         $this->assertEquals("New author", Book::first()->author);
+    }
+
+    /** @test */
+    public function a_book_can_be_deleted()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->post("api/books", [
+            "title" => "Cook book title",
+            "author" => "Fahibram"
+        ]);
+
+        $this->assertCount(1, Book::all());
+
+        $book = Book::first();
+        $response = $this->delete("api/books/{$book->id}");
+
+        $this->assertCount(0, Book::all());
     }
 }
