@@ -28,7 +28,7 @@ class BookManagementTest extends TestCase
     {
         // $this->withoutExceptionHandling();
 
-        $response = $this->post("api/books", array_merge($this->bookData(), ["title" => "Fahibram"]));
+        $response = $this->post("api/books", array_merge($this->bookData(), ["title" => ""]));
         $response->assertSessionHasErrors("title");
     }
 
